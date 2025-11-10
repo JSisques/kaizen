@@ -32,15 +32,18 @@ export function nestjsModule(options: Schema): Rule {
     context.logger.info(`Path: ${path || './'}`);
 
     // Template source files
+    // The __name@dasherize__ folder will be transformed to the module name
     const templateSource = apply(url('./files'), [
       template({
         ...strings,
+        name: options.name,
         moduleName,
         moduleNamePascal,
         moduleNameCamel,
         path: '',
       }),
-      move(path ? `${path}/${moduleName}` : moduleName),
+      // Move the transformed folder (moduleName) to the target path
+      move(path || './'),
     ]);
 
     return chain([mergeWith(templateSource)])(tree, context);

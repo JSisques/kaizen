@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "id": "nestjs-module-schema",
+  "$id": "nestjs-module-schema",
   "title": "NestJS Module with DDD Schema",
   "type": "object",
   "properties": {
@@ -21,4 +21,3 @@
   },
   "required": ["name"]
 }
-
