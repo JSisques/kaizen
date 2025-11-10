@@ -1,0 +1,11 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "nestjs-module": {
+      "description": "Generate a NestJS module with DDD structure and CQRS",
+      "factory": "./nestjs-module/index#nestjsModule",
+      "schema": "./nestjs-module/schema.json"
+    }
+  }
+}
+

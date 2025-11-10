@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "nestjs-module-schema",
+  "title": "NestJS Module with DDD Schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the module (e.g., users, products)",
+      "x-prompt": "What is the name of the module?",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "path": {
+      "type": "string",
+      "description": "The path where the module will be created",
+      "default": ""
+    }
+  },
+  "required": ["name"]
+}
+
