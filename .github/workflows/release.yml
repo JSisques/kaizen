@@ -47,10 +47,13 @@ jobs:
 
       - name: Configure npm authentication
         run: |
-          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > $HOME/.npmrc
+          echo "@jsisques:registry=https://registry.npmjs.org/" > $HOME/.npmrc
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> $HOME/.npmrc
+          echo "//registry.npmjs.org/:always-auth=true" >> $HOME/.npmrc
           chmod 600 $HOME/.npmrc
-          cat $HOME/.npmrc | sed 's/:_authToken=.*/:_authToken=***/' 
-          npm whoami --registry=https://registry.npmjs.org/
+          npm whoami
+          echo "Package name from package.json:"
+          node -p "require('./package.json').name"
 
       - name: Configure Git
         run: |
