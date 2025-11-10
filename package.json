@@ -24,6 +24,10 @@
   "author": "",
   "license": "MIT",
   "schematics": "./dist/collection.json",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
   "dependencies": {
     "@angular-devkit/core": "^17.0.0",
     "@angular-devkit/schematics": "^17.0.0",
