@@ -9,7 +9,6 @@ permissions:
   contents: write
   issues: write
   pull-requests: write
-  id-token: write
 
 jobs:
   release:
@@ -24,7 +23,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '24'
-          registry-url: 'https://registry.npmjs.org'
 
       - name: Install pnpm
         uses: pnpm/action-setup@v2
@@ -48,11 +46,11 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Configure npm authentication
-        if: env.NPM_TOKEN != ''
         run: |
-          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > $HOME/.npmrc
+          chmod 600 $HOME/.npmrc
+          cat $HOME/.npmrc | sed 's/:_authToken=.*/:_authToken=***/' 
+          npm whoami --registry=https://registry.npmjs.org/
 
       - name: Configure Git
         run: |
