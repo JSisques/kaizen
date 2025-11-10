@@ -41,3 +41,6 @@ Thumbs.db
 .pnpm-store/
 .pnpm-debug.log
 
+# Semantic Release
+.release/
+
