@@ -6,6 +6,11 @@
     "build": "tsc -p tsconfig.json && node -e \"const fs = require('fs'); fs.cpSync('src/nestjs-module/files', 'dist/nestjs-module/files', {recursive: true, force: true}); fs.cpSync('src/nestjs-module/schema.json', 'dist/nestjs-module/schema.json', {force: true}); fs.cpSync('src/collection.json', 'dist/collection.json', {force: true})\"",
     "test": "pnpm run build && jasmine dist/**/*_spec.js",
     "schematics": "schematics",
+    "lint": "eslint \"src/**/*.ts\" --ignore-pattern \"**/files/**\" --fix",
+    "lint:check": "eslint \"src/**/*.ts\" --ignore-pattern \"**/files/**\"",
+    "format": "prettier --write \"src/**/*.{ts,json,md}\" --ignore-path .prettierignore",
+    "format:check": "prettier --check \"src/**/*.{ts,json,md}\" --ignore-path .prettierignore",
+    "prepare": "husky install",
     "postinstall": "pnpm run build"
   },
   "keywords": [
@@ -31,8 +36,19 @@
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
+    "husky": "^9.1.7",
     "jasmine": "^5.1.1",
+    "lint-staged": "^15.5.2",
     "prettier": "^3.1.1",
     "typescript": "~5.3.3"
+  },
+  "lint-staged": {
+    "*.{ts,js}": [
+      "eslint --fix --ignore-pattern \"**/files/**\"",
+      "prettier --write --ignore-path .prettierignore"
+    ],
+    "*.{json,md}": [
+      "prettier --write --ignore-path .prettierignore"
+    ]
   }
 }

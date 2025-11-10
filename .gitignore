@@ -20,6 +20,9 @@ coverage/
 *~
 .DS_Store
 
+# Husky
+.husky/_
+
 # Environment variables
 .env
 .env.local

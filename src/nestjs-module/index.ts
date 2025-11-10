@@ -49,4 +49,3 @@ export function nestjsModule(options: Schema): Rule {
     return chain([mergeWith(templateSource)])(tree, context);
   };
 }
-

@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+dist/
+
+# Template files (they contain EJS syntax, not valid TypeScript)
+**/files/**
+
+# Build outputs
+*.tsbuildinfo
+
+# Other
+.pnpm-store/
+.husky/_
+
