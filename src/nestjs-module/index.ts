@@ -24,6 +24,7 @@ export function nestjsModule(options: Schema): Rule {
     const moduleName = strings.dasherize(options.name);
     const moduleNamePascal = strings.classify(moduleName);
     const moduleNameCamel = strings.camelize(moduleName);
+    const moduleNameUpper = moduleNamePascal.toUpperCase();
 
     // Determine the path
     const path = options.path || '';
@@ -40,6 +41,7 @@ export function nestjsModule(options: Schema): Rule {
         moduleName,
         moduleNamePascal,
         moduleNameCamel,
+        moduleNameUpper,
         path: '',
       }),
       // Move the transformed folder (moduleName) to the target path
