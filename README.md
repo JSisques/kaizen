@@ -25,22 +25,47 @@ pnpm run build
 
 ## Usage
 
+### Global CLI Installation (Recommended)
+
+Install Kaizen globally to use it like NestJS CLI:
+
+```bash
+# Install globally
+pnpm add -g @jsisques/kaizen
+
+# Or using npm
+npm install -g @jsisques/kaizen
+```
+
+Then use it in any NestJS project:
+
+```bash
+# Generate a module in the current directory
+kaizen generate nestjs-module users
+
+# Or use the short alias
+kaizen g nestjs-module users
+
+# Generate a module in a specific path
+kaizen g nestjs-module users --path=src/modules
+```
+
 ### As a schematic in another project
 
 1. Install the package:
 
 ```bash
-pnpm add -D kaizen
+pnpm add -D @jsisques/kaizen
 ```
 
 2. Run the schematic:
 
 ```bash
 # Generate a module in the current directory
-pnpm schematics kaizen:nestjs-module users
+pnpm schematics @jsisques/kaizen:nestjs-module users
 
 # Generate a module in a specific path
-pnpm schematics kaizen:nestjs-module users --path=src/modules
+pnpm schematics @jsisques/kaizen:nestjs-module users --path=src/modules
 ```
 
 ### Development
@@ -48,14 +73,14 @@ pnpm schematics kaizen:nestjs-module users --path=src/modules
 To test the schematic locally:
 
 ```bash
-# Link the package
-pnpm link
+# Build the project
+pnpm run build
 
-# In your NestJS project, link kaizen
-pnpm link kaizen
+# Link the package globally
+pnpm link --global
 
-# Run the schematic
-pnpm schematics kaizen:nestjs-module users
+# Now you can use kaizen command anywhere
+kaizen g nestjs-module test-module
 ```
 
 ## Generated Structure
