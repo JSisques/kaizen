@@ -1,3 +1,9 @@
+## [1.1.2](https://github.com/JSisques/kaizen/compare/v1.1.1...v1.1.2) (2025-11-12)
+
+### Bug Fixes
+
+- update schematics command to use npx if not installed globally ([921ae1f](https://github.com/JSisques/kaizen/commit/921ae1fdd99997c91c5cff623a829c8f548a90f1))
+
 ## [1.1.1](https://github.com/JSisques/kaizen/compare/v1.1.0...v1.1.1) (2025-11-12)
 
 ### Bug Fixes
