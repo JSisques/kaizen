@@ -1,6 +1,6 @@
 {
   "name": "@jsisques/kaizen",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A schematic generator for NestJS DDD projects",
   "scripts": {
     "build": "tsc -p tsconfig.json && node -e \"const fs = require('fs'); const path = require('path'); fs.cpSync('src/nestjs-module/files', 'dist/nestjs-module/files', {recursive: true, force: true}); fs.cpSync('src/nestjs-module/schema.json', 'dist/nestjs-module/schema.json', {force: true}); fs.cpSync('src/collection.json', 'dist/collection.json', {force: true}); if (fs.existsSync('dist/bin/kaizen.js')) { fs.chmodSync('dist/bin/kaizen.js', '755'); }\"",
