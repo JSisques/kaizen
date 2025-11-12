@@ -38,22 +38,17 @@ program
       }
 
       try {
-        // Check if schematics CLI is available
+        // Check if schematics CLI is available, otherwise use npx
+        let schematicsCommand = 'schematics';
         try {
           execSync('schematics --version', { stdio: 'ignore' });
         } catch {
-          console.error(
-            'Error: @angular-devkit/schematics-cli is not installed.',
-          );
-          console.error(
-            'Please install it globally: npm install -g @angular-devkit/schematics-cli',
-          );
-          console.error('Or use: npx @angular-devkit/schematics-cli');
-          process.exit(1);
+          // Use npx if schematics is not available globally
+          schematicsCommand = 'npx @angular-devkit/schematics-cli';
         }
 
         // Execute the schematic
-        const command = `schematics ${schematicName} ${args.join(' ')}`;
+        const command = `${schematicsCommand} ${schematicName} ${args.join(' ')}`;
         console.log(`Running: ${command}`);
         execSync(command, { stdio: 'inherit' });
       } catch (error) {
