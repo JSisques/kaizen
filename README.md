@@ -91,7 +91,6 @@ When you run the schematic with module name `users`, it will generate:
 users/
 ├── users.module.ts
 ├── application/
-│   ├── users.service.ts
 │   ├── commands/
 │   │   ├── users-create/
 │   │   │   ├── users-create.command.ts
